@@ -1,0 +1,390 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* Reset or basic styles */
+body {
+    margin: 0;
+    font-family: 'Your-Figma-Font', sans-serif; /* Figma वाला फॉन्ट यहाँ डालें */
+    line-height: 1.6;
+    color: #333; /* Default text color */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header Styles */
+.navbar {
+    background-color: #F8F9FA; /* Figma Header Background Color */
+    padding: 10px 20px;
+    border-bottom: 1px solid #e7e7e7; /* Example border */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Adjust as per design */
+    margin: 0 auto;
+}
+
+.navbar-logo img {
+    height: 40px; /* Adjust logo size */
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 20px; /* Adjust spacing */
+}
+
+.nav-link {
+    color: #555; /* Figma Nav Link Color */
+    font-weight: 500; /* Adjust font weight */
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+    .nav-link:hover,
+    .nav-link.active /* Add class for active link if needed */ {
+        color: #007bff; /* Figma Nav Link Hover/Active Color */
+    }
+
+
+/* Hero Section Styles */
+.hero-section {
+    background-image: url('../images/hero-background.jpg'); /* Background image path */
+    /* Or use gradient: background: linear-gradient(...); */
+    background-size: cover;
+    background-position: center;
+    height: 70vh; /* Adjust height as per Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff; /* Text color on hero */
+    position: relative; /* Needed if using overlay */
+}
+
+    /* Optional overlay for better text readability */
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay - Adjust opacity */
+        z-index: 1;
+    }
+
+.hero-content {
+    position: relative; /* Ensure content is above overlay */
+    z-index: 2;
+    max-width: 700px; /* Adjust as needed */
+    padding: 20px;
+}
+
+    .hero-content h1 {
+        font-size: 3rem; /* Figma Heading Size */
+        margin-bottom: 15px;
+        font-weight: 700; /* Adjust weight */
+    }
+
+    .hero-content p {
+        font-size: 1.2rem; /* Figma Paragraph Size */
+        margin-bottom: 30px;
+    }
+
+.cta-button {
+    background-color: #007bff; /* Figma Button Color */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px; /* Figma Button Border Radius */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .cta-button:hover {
+        background-color: #0056b3; /* Figma Button Hover Color */
+    }
+
+/* Main Content Area */
+.main-content {
+    /* Add padding or styles if needed for sections below hero */
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #343a40; /* Figma Footer Background Color */
+    color: #f8f9fa; /* Figma Footer Text Color */
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px; /* Space above footer */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* ... (पिछली CSS यहाँ है) ... */
+
+/* General Page Sections */
+.page-header {
+    background-color: #f1f3f5; /* Figma से मिला हुआ हल्का रंग या ग्रेडिएंट */
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #dee2e6; /* Optional border */
+}
+
+    .page-header h1 {
+        color: #212529; /* Figma से मिला हुआ हेडिंग कलर */
+        font-size: 2.8rem; /* Figma से मिला हुआ साइज़ */
+        font-weight: 600; /* Figma से मिला हुआ वेट */
+        margin-bottom: 10px;
+    }
+
+    .page-header p {
+        font-size: 1.1rem;
+        color: #6c757d; /* Figma से मिला हुआ सब-हेडिंग कलर */
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+.content-section {
+    max-width: 960px; /* या Figma के अनुसार कंटेनर विड्थ */
+    margin: 0 auto 50px auto;
+    padding: 0 15px; /* साइड पैडिंग */
+}
+
+/* About Page Specific */
+.about-content h2 {
+    color: #343a40; /* Figma से मिला हुआ सब-हेडिंग कलर */
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.about-content p {
+    line-height: 1.8;
+    font-size: 1.1rem; /* Figma से मिला हुआ टेक्स्ट साइज़ */
+    color: #495057; /* Figma से मिला हुआ टेक्स्ट कलर */
+    margin-bottom: 15px;
+}
+
+.about-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Figma के अनुसार */
+    margin-top: 20px;
+}
+
+
+/* Services Page Specific */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* रेस्पॉन्सिव ग्रिड */
+    gap: 30px; /* ग्रिड के बीच का गैप */
+}
+
+.service-item {
+    border: 1px solid #e0e0e0; /* Figma बॉर्डर कलर */
+    padding: 25px;
+    border-radius: 8px; /* Figma बॉर्डर रेडियस */
+    text-align: center;
+    background-color: #ffffff; /* Figma आइटम बैकग्राउंड */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Figma शैडो */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .service-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+    }
+
+.service-icon {
+    font-size: 3rem; /* Figma आइकन साइज़ */
+    color: #0d6efd; /* Figma प्राइमरी या आइकन कलर */
+    margin-bottom: 15px;
+    display: block; /* सुनिश्चित करें कि आइकन ब्लॉक एलिमेंट है */
+}
+
+.service-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem; /* Figma सर्विस टाइटल साइज़ */
+    color: #333;
+}
+
+.service-item p {
+    font-size: 1rem; /* Figma सर्विस डिस्क्रिप्शन साइज़ */
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contact Form Specific */
+.contact-form-section {
+    background-color: #f8f9fa; /* Figma फॉर्म सेक्शन बैकग्राउंड */
+    padding: 40px;
+    border-radius: 8px; /* Figma बॉर्डर रेडियस */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.contact-form .form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Figma लेबल वेट */
+    color: #495057; /* Figma लेबल कलर */
+}
+
+.contact-form .form-control {
+    width: 100%;
+    padding: 12px 15px; /* Figma इनपुट पैडिंग */
+    border: 1px solid #ced4da; /* Figma बॉर्डर कलर */
+    border-radius: 5px; /* Figma इनपुट बॉर्डर रेडियस */
+    box-sizing: border-box;
+    font-size: 1rem; /* Figma इनपुट टेक्स्ट साइज़ */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .contact-form .form-control:focus {
+        border-color: #86b7fe; /* फोकस कलर */
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* फोकस शैडो */
+    }
+
+.contact-form textarea.form-control {
+    resize: vertical;
+    min-height: 120px; /* न्यूनतम ऊंचाई */
+}
+
+.contact-form .cta-button { /* बटन स्टाइल को दोबारा इस्तेमाल करें या कस्टमाइज़ करें */
+    margin-top: 20px;
+    padding: 12px 30px; /* Figma बटन पैडिंग */
+    font-size: 1.1rem; /* Figma बटन टेक्स्ट साइज़ */
+}
+
+/* Validation Styles - Bootstrap 5 compatibility */
+.needs-validation .form-control:invalid {
+    border-color: #dc3545;
+}
+
+.needs-validation .form-control:valid {
+    border-color: #198754;
+}
+
+.invalid-feedback, .text-danger {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: .25rem;
+    display: none; /* Hide initially */
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .text-danger,
+.input-validation-error ~ .text-danger, /* For MVC validation */
+.field-validation-error { /* For MVC validation */
+    display: block; /* Show on invalid */
+}
+
+.was-validated textarea.form-control:invalid { /* Fix for textarea */
+    border-color: #dc3545;
+}
+
+/* Alert Styles */
+.alert {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .375rem; /* Bootstrap 5 radius */
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+/* Footer Styles (Ensure it's at the bottom) */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1; /* Make main content grow */
+}
+
+.footer {
+    background-color: #212529; /* Figma Footer Background */
+    color: #f8f9fa;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: auto; /* Push footer to bottom */
+}
+
+.footer-container {
+    max-width: 1140px; /* Match container width */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+/* Header Styles में */
+.nav-link {
+    color: #555; /* Figma Nav Link Color */
+    font-weight: 500; /* Adjust font weight */
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    position: relative; /* Optional: for underline effect */
+    border-bottom: 2px solid transparent; /* Optional: for underline effect */
+}
+
+    .nav-link:hover {
+        color: #007bff; /* Figma Nav Link Hover Color */
+    }
+
+    /* Active Link Style */
+    .nav-link.active {
+        color: #0056b3; /* Figma Active Link Color (थोड़ा गहरा) */
+        font-weight: 700; /* एक्टिव लिंक को बोल्ड करें */
+        border-bottom-color: #0056b3; /* Optional: अंडरलाइन दिखाएँ */
+    }
+/* Add CSS for other sections (About, Services, Contact) based on Figma */

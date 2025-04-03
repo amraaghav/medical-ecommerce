@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JMSmedical</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JMSmedical.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "Home";
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "Index";
+    }
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a class="navbar-logo" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/jms-logo.png" alt="JMS Logo" />
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        @* अगर कंट्रोलर 'Home' और एक्शन 'Index' है तो 'active' क्लास जोड़ें *@
+                        <a class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")"
+                           asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        @* अगर कंट्रोलर 'Home' और एक्शन 'About' है तो 'active' क्लास जोड़ें *@
+                        <a class="nav-link @(currentController == "Home" && currentAction == "About" ? "active" : "")"
+                           asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        @* अगर कंट्रोलर 'Home' और एक्शन 'Services' है तो 'active' क्लास जोड़ें *@
+                        <a class="nav-link @(currentController == "Home" && currentAction == "Services" ? "active" : "")"
+                           asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        @* अगर कंट्रोलर 'Home' और एक्शन 'Contact' है तो 'active' क्लास जोड़ें *@
+                        <a class="nav-link @(currentController == "Home" && currentAction == "Contact" ? "active" : "")"
+                           asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    @* अन्य लिंक्स के लिए भी इसी तरह लॉजिक जोड़ें *@
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <!-- No container by default, add if needed -->
+        <main role="main" class="main-content">
+            @RenderBody() <!-- Page specific content will render here -->
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            © @DateTime.Now.Year - JMS - All Rights Reserved.
+            <!-- Add other footer content if needed -->
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> <!-- Remove if not using jQuery -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

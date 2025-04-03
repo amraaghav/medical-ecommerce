@@ -1,0 +1,86 @@
+﻿@model JMSmedical.Models.ContactMessage
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<section class="page-header">
+    <h1>@ViewData["Title"]</h1>
+    <p>We'd love to hear from you! Fill out the form below.</p>
+</section>
+
+<section class="contact-form-section content-section">
+
+    @* सफलता या एरर संदेश दिखाने के लिए क्षेत्र *@
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @* मॉडल-लेवल एरर दिखाएँ (जैसे DbUpdateException वाला) *@
+    <div asp-validation-summary="ModelOnly" class="text-danger alert alert-danger" role="alert"></div>
+
+
+    <form asp-action="Contact" method="post" class="contact-form needs-validation" novalidate>
+        @* CSRF सुरक्षा के लिए टोकन जरूरी है *@
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Your Name" required />
+                    <span asp-validation-for="Name" class="text-danger invalid-feedback"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Your Email Address" required />
+                    <span asp-validation-for="Email" class="text-danger invalid-feedback"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Subject" class="form-label"></label>
+            <input asp-for="Subject" class="form-control" placeholder="Subject" required />
+            <span asp-validation-for="Subject" class="text-danger invalid-feedback"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Message" class="form-label"></label>
+            <textarea asp-for="Message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            <span asp-validation-for="Message" class="text-danger invalid-feedback"></span>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="cta-button btn btn-primary btn-lg">Send Message</button>
+        </div>
+    </form>
+</section>
+
+@* Client-side validation scripts को सक्षम करने के लिए सेक्शन *@
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // Optional: Add Bootstrap 5 form validation styles activation
+        (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+    </script>
+}

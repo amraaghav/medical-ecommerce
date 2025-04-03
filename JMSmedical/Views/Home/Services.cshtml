@@ -1,0 +1,34 @@
+﻿@model IEnumerable<JMSmedical.Models.Service> // Model का प्रकार यहाँ बताएं
+
+@{
+    ViewData["Title"] = "Our Services";
+}
+
+<section class="page-header">
+    <h1>@ViewData["Title"]</h1>
+</section>
+
+<section class="services-list content-section">
+    @if (Model != null && Model.Any())
+    {
+        <div class="service-grid">
+            @foreach (var item in Model)
+            {
+                <div class="service-item">
+                    @if (!string.IsNullOrEmpty(item.IconClass))
+                    {
+                        <i class="@item.IconClass service-icon fa-3x mb-3"></i> <!-- Example using Font Awesome classes -->
+                    }
+                    <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    <!-- Add a 'Learn More' button if needed -->
+                    <!-- <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a> -->
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-center">Currently, no services are listed. Please check back later.</p>
+    }
+</section>
